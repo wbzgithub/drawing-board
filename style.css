@@ -4,6 +4,5 @@
 	box-sizing: border-box;
 }
 #canvas {
-	height: 100vh;
-	background-color: antiquewhite;
+	display: block;
 }

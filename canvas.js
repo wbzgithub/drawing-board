@@ -1,17 +1,41 @@
 const canvas = document.getElementById("canvas")
-canvas.onclick = e => {
-	console.log(e.x)
-	console.log(e.y)
-	let div = document.createElement('div')
-	div.style.position = 'absolute'
-	div.style.left = e.x + 'px'
-	div.style.top = e.y + 'px'
-	div.style.width = '6px'
-	div.style.height = '6px'
-	div.style.marginLeft = '-3px'
-	div.style.marginTop = '-3px'
-	div.style.borderRadius = '50%'
-	div.style.backgroundColor = 'black'
-	
-	canvas.appendChild(div)
+canvas.width = document.documentElement.clientWidth
+canvas.height = document.documentElement.clientHeight
+let ctx = canvas.getContext('2d')
+let painting = false
+let prePosition = []
+let paintingColor = 'black'
+
+ctx.fillStyle = "paintingColor"
+ctx.strokeStyle = "paintingColor"
+ctx.lineWidth = '10'
+ctx.lineCap = "round"
+
+const divs = document.querySelectorAll('div')
+for()
+
+canvas.onmousedown = (e) => {
+		painting = true
+		prePosition = [e.clientX, e.clientY]
 }
+
+canvas.onmousemove = (e) => {
+	if (painting === true) {
+			ctx.beginPath()
+			drawLine(prePosition[0], prePosition[1], e.clientX, e.clientY)
+			prePosition = [e.clientX, e.clientY]
+	}
+}
+canvas.onmouseup = () => {
+	painting = false
+}
+function drawLine(x1, y1, x2, y2) {
+	ctx.beginPath();
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
+	ctx.stroke();
+}
+
+
+
+
