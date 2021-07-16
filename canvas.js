@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas")
 canvas.width = document.documentElement.clientWidth
-canvas.height = document.documentElement.clientHeight -20
+canvas.height = document.documentElement.clientHeight 
 let ctx = canvas.getContext('2d')
 let painting = false
 let prePosition = []
@@ -11,7 +11,8 @@ ctx.strokeStyle = "paintingColor"
 ctx.lineWidth = '4'
 ctx.lineCap = "round"
 
-const divs = document.querySelectorAll('div')
+const divs = document.querySelectorAll('.paiting')
+console.log(divs)
 for(let i=0 ; i<divs.length ; i++) {
 	divs[i].style.backgroundColor = divColor[i]
 	divs[i].onclick = function(){
